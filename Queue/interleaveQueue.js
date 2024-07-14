@@ -43,8 +43,16 @@ function interleave(queue) {
     let halfQueue=new Queue();
     let size=queue.size;
     
+    for (let i = 0; i < size/2; i++) {
+  halfQueue.enqueue(queue.dequeue())
 }
+while (!halfQueue.isEmpty()) {
+  queue.enqueue(halfQueue.dequeue());
+  queue.enqueue(q.dequeue())
 
+)
+}
+}
 let q=new Queue()
 q.enqueue(1)
 q.enqueue(2)
