@@ -49,9 +49,8 @@ function interleave(queue) {
 while (!halfQueue.isEmpty()) {
   queue.enqueue(halfQueue.dequeue());
   queue.enqueue(q.dequeue())
-
-)
 }
+return queue;
 }
 let q=new Queue()
 q.enqueue(1)
@@ -64,4 +63,5 @@ q.enqueue(7)
 q.enqueue(8)
 q.enqueue(9)
 q.enqueue(10)
-interleave(q)
+let a=interleave(q);
+console.log(a);
