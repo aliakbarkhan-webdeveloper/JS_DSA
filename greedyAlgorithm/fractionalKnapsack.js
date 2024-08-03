@@ -4,5 +4,5 @@
 function knapsack(arg) {
   let values = [60, 100, 120];
   let weigths = [10, 20, 30];
-  let w=50;//knapsack can hold 50 kg
+  let capacity=50;//knapsack can hold 50 kg
 }
