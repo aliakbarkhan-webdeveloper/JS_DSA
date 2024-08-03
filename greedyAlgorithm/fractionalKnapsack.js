@@ -5,4 +5,7 @@ function knapsack(arg) {
   let values = [60, 100, 120];
   let weigths = [10, 20, 30];
   let capacity=50;//knapsack can hold 50 kg
+
+  //find vales/weight ratio and store it in desending sorted array
+  
 }
