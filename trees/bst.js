@@ -55,7 +55,25 @@ class BST {
     }
   }
 
-  //depth first search
+  //depth first search methods
+
+  //pre-order
+  preorder(root) {
+    if (root) {
+      console.log(root);
+      this.preorder(root.left);
+      this.preorder(root.rigth);
+    }
+  }
+
+  //in-order traverse
+  inorder(root) {
+    if (root) {
+      this.inorder(root.left);
+      console.log(root);
+      this.inorder(root.rigth);
+    }
+  }
 }
 let bst = new BST();
 bst.insert(50);
@@ -63,7 +81,7 @@ bst.insert(70);
 bst.insert(40);
 bst.insert(150);
 bst.insert(1);
-console.log(bst);
+
 let se = bst.search(bst.root, 150);
-console.log(se);
+bst.preorder(bst.root);
 console.log(bst.isEmpty());
