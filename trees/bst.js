@@ -98,23 +98,50 @@ class BST {
       }
       console.log(queue);
     }
+    
+  }
+
+  //Minimum and maximum values in the BST
+  //left most node is min
+  min(root){
+if (!root.left) {
+    return root.value
+}else{
+   return this.min(root.left)
+}
+
+  }
+  //right most node is max
+  max(root){
+    if (!root.rigth) {
+        return root.value
+    }else{
+       return this.min(root.rigth)
+    }
+  }
+
+  //delete node
+  delete(root){
+    
   }
 }
 let bst = new BST();
 bst.insert(50);
+bst.insert(850);
 bst.insert(70);
 bst.insert(40);
-bst.insert(150);
 bst.insert(1);
 
-let se = bst.search(bst.root, 150);
-console.log("preorder");
-bst.preorder(bst.root);
-console.log(bst.isEmpty());
-console.log(`inorder`);
-bst.inorder(bst.root);
-console.log("post order");
-bst.postorder(bst.root);
+// let se = bst.search(bst.root, 150);
+// console.log("preorder");
+// bst.preorder(bst.root);
+// console.log(bst.isEmpty());
+// console.log(`inorder`);
+// bst.inorder(bst.root);
+// console.log("post order");
+// bst.postorder(bst.root);
 
-console.log("breath first search");
-bst.breathSearch();
+// console.log("breath first search");
+// bst.breathSearch();
+console.log(bst.min(bst.root));
+console.log(bst.max(bst.root));
