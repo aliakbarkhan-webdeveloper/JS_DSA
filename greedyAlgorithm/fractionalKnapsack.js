@@ -8,7 +8,6 @@ function knapsack(arg) {
     { weigth: 30, value: 120 },
   ];
   let capacity = 40; //knapsack can hold 50 kg
-
   //find vales/weight ratio and store it in desending sorted array
 //   let fraction = items.sort((a, b) => a.value / a.weigth - b.value / b.weigth);
 //   console.log(fraction);
