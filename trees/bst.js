@@ -60,7 +60,7 @@ class BST {
   //pre-order
   preorder(root) {
     if (root) {
-      console.log(root);
+      console.log(root.value);
       this.preorder(root.left);
       this.preorder(root.rigth);
     }
@@ -70,8 +70,33 @@ class BST {
   inorder(root) {
     if (root) {
       this.inorder(root.left);
-      console.log(root);
+      console.log(root.value);
       this.inorder(root.rigth);
+    }
+  }
+
+  //post_order traverse
+  postorder(root) {
+    if (root) {
+      this.postorder(root.left);
+      this.postorder(root.rigth);
+      console.log(root.value);
+    }
+  }
+
+  //Breath first search
+  breathSearch(root) {
+    let queue = [];
+    queue.push(this.root);
+    while (queue.length) {
+      let current = queue.shift();
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.rigth) {
+        queue.push(current.rigth);
+      }
+      console.log(queue);
     }
   }
 }
@@ -83,5 +108,13 @@ bst.insert(150);
 bst.insert(1);
 
 let se = bst.search(bst.root, 150);
+console.log("preorder");
 bst.preorder(bst.root);
 console.log(bst.isEmpty());
+console.log(`inorder`);
+bst.inorder(bst.root);
+console.log("post order");
+bst.postorder(bst.root);
+
+console.log("breath first search");
+bst.breathSearch();
