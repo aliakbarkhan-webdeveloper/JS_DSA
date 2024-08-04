@@ -1,10 +1,7 @@
 //minimum absolute difference => a-b=b-a
 //Question:
 //Given two arrays of equal length, pair each element of array 1 to each element of array 2, sum of all paris difference should be minimum
-//e.g. [a,b,c],[d,e,f]
-//Case1:|a-d|+|b-e|+|c-f|
-//Case2:|a-f|+|b-e|+|c-d|
-//Case3:|a-e|+|b-d|+|c-f|
+
 
 function absPair() {
 let arrA=[1,2,3];
