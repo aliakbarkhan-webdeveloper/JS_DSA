@@ -43,8 +43,20 @@ class BST {
   }
 
   //Search a node
-}
+  search(root, val) {
+    if (root === null) {
+      return false;
+    } else if (root.value == val) {
+      return true;
+    } else if (root.value > val) {
+      return this.search(root.left, val);
+    } else {
+      return this.search(root.rigth, val);
+    }
+  }
 
+  //depth first search
+}
 let bst = new BST();
 bst.insert(50);
 bst.insert(70);
@@ -52,4 +64,6 @@ bst.insert(40);
 bst.insert(150);
 bst.insert(1);
 console.log(bst);
+let se = bst.search(bst.root, 150);
+console.log(se);
 console.log(bst.isEmpty());
