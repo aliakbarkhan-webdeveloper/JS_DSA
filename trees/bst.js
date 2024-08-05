@@ -84,8 +84,8 @@ class BST {
     }
   }
 
-  //Breath first search
-  breathSearch(root) {
+  //Breath first search=>printing the all nodes of each levelthe level
+  breathSearch(root) {  //also known as level order traversal
     let queue = [];
     queue.push(this.root);
     while (queue.length) {
