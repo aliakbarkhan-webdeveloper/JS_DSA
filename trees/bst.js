@@ -124,6 +124,11 @@ if (!root.left) {
   delete(root){
     
   }
+
+
+    //count of nodes
+
+    nodecount(){}
 }
 let bst = new BST();
 bst.insert(50);
