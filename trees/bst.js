@@ -85,7 +85,8 @@ class BST {
   }
 
   //Breath first search=>printing the all nodes of each levelthe level
-  breathSearch(root) {  //also known as level order traversal
+  breathSearch(root) {
+    //also known as level order traversal
     let queue = [];
     queue.push(this.root);
     while (queue.length) {
@@ -98,37 +99,51 @@ class BST {
       }
       console.log(queue);
     }
-    
   }
 
   //Minimum and maximum values in the BST
   //left most node is min
-  min(root){
-if (!root.left) {
-    return root.value
-}else{
-   return this.min(root.left)
-}
-
+  min(root) {
+    if (!root.left) {
+      return root.value;
+    } else {
+      return this.min(root.left);
+    }
   }
   //right most node is max
-  max(root){
+  max(root) {
     if (!root.rigth) {
-        return root.value
-    }else{
-       return this.min(root.rigth)
+      return root.value;
+    } else {
+      return this.min(root.rigth);
     }
   }
 
   //delete node
-  delete(root){
-    
+  delete(root) {}
+
+  //count of nodes
+
+  nodecount(nodes) {
+    if (nodes === null) {
+      return 0;
+    }
+    let leftTreee = this.nodecount(nodes.left);
+    let rightNodes = this.nodecount(nodes.rigth);
+    return leftTreee + rightNodes + 1;
   }
 
+  sumofnode(node) {
+    if (nodes === null) {
+      return 0;
+    }
+    let leftsum = this.nodecount(node.left);
+    let rightsum = this.nodecount(node.rigth);
+    return leftsum + rightsum + node.data;
+  }
 
-    //count of nodes
-
-    nodecount(){}
+  //treeHeigth
+  treeHeigth(){}
 }
 let bst = new BST();
 bst.insert(50);
@@ -148,5 +163,5 @@ bst.insert(1);
 
 // console.log("breath first search");
 // bst.breathSearch();
-console.log(bst.min(bst.root));
-console.log(bst.max(bst.root));
+// console.log(bst.min(bst.root));
+// console.log(bst.max(bst.root));
