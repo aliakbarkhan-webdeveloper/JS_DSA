@@ -1,3 +1,5 @@
+//diameter=> the number of nodes between longest path between two leaves
+
 class Node {
   constructor(data) {
     this.data = data;
@@ -35,20 +37,22 @@ class BST {
   //constructor for diameter of node
   //diameter = max(left tree ,right,1)
 
-  diameter() {
-    let diameterRef = { max: 0 };
-    this._diameter(this.root, diameterRef);
-    return diameterRef.max;
-  }
-  _diameter(node, diameterRef) {
-    if (node === null) {
-      return 0;
-    }
-    let leftHeigth = this._diameter(node.left, diameterRef);
-    let rightHeigth = this._diameter(node.rigth, diameterRef);
-    diameterRef.max = Math.max(diameterRef.max, leftHeigth + rightHeigth);
-    return 1 + Math.max(leftHeigth, rightHeigth);
-  }
+  // diameter() {
+  //   let diameterRef = { max: 0 };
+  //  let a= this._diameter(this.root, diameterRef);
+  //  console.log(a);
+   
+  //   return diameterRef.max;
+  // }
+  // _diameter(node, diameterRef) {
+  //   if (node === null) {
+  //     return 0;
+  //   }
+  //   let leftHeigth = this._diameter(node.left, diameterRef);
+  //   let rightHeigth = this._diameter(node.rigth, diameterRef);
+  //   diameterRef.max = Math.max(diameterRef.max, leftHeigth + rightHeigth);
+  //   return 1 + Math.max(leftHeigth, rightHeigth);
+  // }
 }
 
 const bst = new BST();
@@ -60,4 +64,4 @@ bst.insert(4);
 bst.insert(6);
 bst.insert(8);
 
-console.log(bst.diameter());
+console.log(bst);
