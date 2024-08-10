@@ -120,30 +120,44 @@ class BST {
   }
 
   //delete node
-  delete(root) {}
+  delete(data) {
+    this.root = this._delete(this.root, value);
+  }
+
+  _delete(node, value) {
+    if (node === null) {
+      return null;
+    }
+
+    //checking data on left side
+    if (value < node.value) {
+      node.left = this._delete(node.left, value);
+    } else if (value > node.value) {
+      //checking node on right side
+      node.rigth = this._delete(node.rigth, value);
+    } else {
+      //if we found node delete it
+      if (node.left === null && node.rigth === null) {
+        //it means nodes have no children so delete it
+        return null;
+      } else if (node.left === null) {
+        //node have rigth child so replace it with child
+        return node.rigth;
+      } else {
+        
+      }
+    }
+  }
 
   //count of nodes
-
-  nodecount(nodes) {
-    if (nodes === null) {
+  nodecount(node) {
+    if (node === null) {
       return 0;
     }
-    let leftTreee = this.nodecount(nodes.left);
-    let rightNodes = this.nodecount(nodes.rigth);
+    let leftTreee = this.nodecount(node.left);
+    let rightNodes = this.nodecount(node.rigth);
     return leftTreee + rightNodes + 1;
   }
-
-  sumofnode(node) {
-    if (nodes === null) {
-      return 0;
-    }
-    let leftsum = this.nodecount(node.left);
-    let rightsum = this.nodecount(node.rigth);
-    return leftsum + rightsum + node.data;
-  }
-
-  //treeHeigth
-  treeHeigth(){}
 }
 let bst = new BST();
 bst.insert(50);
