@@ -1,6 +1,6 @@
 class Node {
   constructor(data) {
-    this.value = data;
+    this.data = data;
     this.left = null;
     this.rigth = null;
   }
@@ -27,7 +27,7 @@ class BST {
 
   //insert_NOde
   insertNode(root, node) {
-    if (root.value > node.value) {
+    if (root.data > node.data) {
       if (root.left === null) {
         root.left = node;
       } else {
@@ -46,9 +46,9 @@ class BST {
   search(root, val) {
     if (root === null) {
       return false;
-    } else if (root.value == val) {
+    } else if (root.data == val) {
       return true;
-    } else if (root.value > val) {
+    } else if (root.data > val) {
       return this.search(root.left, val);
     } else {
       return this.search(root.rigth, val);
@@ -60,7 +60,7 @@ class BST {
   //pre-order
   preorder(root) {
     if (root) {
-      console.log(root.value);
+      console.log(root.data);
       this.preorder(root.left);
       this.preorder(root.rigth);
     }
@@ -70,7 +70,7 @@ class BST {
   inorder(root) {
     if (root) {
       this.inorder(root.left);
-      console.log(root.value);
+      console.log(root.data);
       this.inorder(root.rigth);
     }
   }
@@ -80,7 +80,7 @@ class BST {
     if (root) {
       this.postorder(root.left);
       this.postorder(root.rigth);
-      console.log(root.value);
+      console.log(root.data);
     }
   }
 
@@ -105,7 +105,7 @@ class BST {
   //left most node is min
   min(root) {
     if (!root.left) {
-      return root.value;
+      return root.data;
     } else {
       return this.min(root.left);
     }
@@ -113,7 +113,7 @@ class BST {
   //right most node is max
   max(root) {
     if (!root.rigth) {
-      return root.value;
+      return root.data;
     } else {
       return this.min(root.rigth);
     }
@@ -121,20 +121,20 @@ class BST {
 
   //delete node
   delete(data) {
-    this.root = this._delete(this.root, value);
+    this.root = this._delete(this.root, data);
   }
 
-  _delete(node, value) {
+  _delete(node, data) {
     if (node === null) {
       return null;
     }
 
     //checking data on left side
-    if (value < node.value) {
-      node.left = this._delete(node.left, value);
-    } else if (value > node.value) {
+    if (data < node.data) {
+      node.left = this._delete(node.left, data);
+    } else if (data > node.data) {
       //checking node on right side
-      node.rigth = this._delete(node.rigth, value);
+      node.rigth = this._delete(node.rigth, data);
     } else {
       //if we found node delete it
       if (node.left === null && node.rigth === null) {
@@ -143,10 +143,21 @@ class BST {
       } else if (node.left === null) {
         //node have rigth child so replace it with child
         return node.rigth;
-      } else {
-        
+      } else if(node.rigth==null) {
+        return node.left
+      }else{
+        let minNode=this._minNode(node.rigth);
+        node.data=minNode.data;
+        node.rigth=this._delete(node.rigth,minNode.data)
       }
+      return node
     }
+  }
+  _minNode(node){
+    while (node.left!==null) {
+      node=node.left
+    }
+    return node
   }
 
   //count of nodes
@@ -161,10 +172,12 @@ class BST {
 }
 let bst = new BST();
 bst.insert(50);
-bst.insert(850);
-bst.insert(70);
 bst.insert(40);
-bst.insert(1);
+bst.insert(60);
+bst.insert(70)
+bst.insert(41)
+bst.insert(39)
+bst.insert(59)
 
 // let se = bst.search(bst.root, 150);
 // console.log("preorder");
@@ -179,3 +192,6 @@ bst.insert(1);
 // bst.breathSearch();
 // console.log(bst.min(bst.root));
 // console.log(bst.max(bst.root));
+console.log(bst);
+bst.delete()
+console.log(bst);
