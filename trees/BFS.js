@@ -41,4 +41,31 @@ class BST {
       }
     }
   }
+
+  BFS(Node) {
+    if (Node == null) {
+      return;
+    }
+    let arr = [];
+    arr.unshift(Node);
+    while (arr) {
+      let curr;
+      curr = arr.pop();
+      console.log(curr.data);
+      if (curr.left) {
+        arr.unshift(curr.left);
+      }
+      if (curr.right) {
+        arr.unshift(curr.right);
+      }
+    }
+  }
 }
+
+
+const bst=new BST()
+bst.insert(10)
+bst.insert(7)
+bst.insert(6)
+bst.insert(13)
+bst.insert(19)
