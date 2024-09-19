@@ -1,6 +1,6 @@
 class Node {
   constructor(data) {
-    this.data = data;
+    this.val = data;
     this.left = null;
     this.rigth = null;
   }
@@ -27,7 +27,7 @@ class BST {
 
   //insert_NOde
   insertNode(root, node) {
-    if (root.data > node.data) {
+    if (root.val > node.val) {
       if (root.left === null) {
         root.left = node;
       } else {
@@ -42,16 +42,16 @@ class BST {
     }
   }
 
-  BFS(Node) {
-    if (Node == null) {
-      return;
+  BFS() {
+    if (this.root == null) {
+      return null;
     }
     let arr = [];
-    arr.unshift(Node);
-    while (arr) {
+    arr.unshift(this.root);
+    while (arr.length>=0) {
       let curr;
       curr = arr.pop();
-      console.log(curr.data);
+      console.log(curr.val);
       if (curr.left) {
         arr.unshift(curr.left);
       }
@@ -65,7 +65,9 @@ class BST {
 
 const bst=new BST()
 bst.insert(10)
-bst.insert(7)
-bst.insert(6)
 bst.insert(13)
 bst.insert(19)
+bst.insert(7)
+bst.insert(6)
+
+bst.BFS()
