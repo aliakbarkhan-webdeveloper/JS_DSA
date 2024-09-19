@@ -143,21 +143,21 @@ class BST {
       } else if (node.left === null) {
         //node have rigth child so replace it with child
         return node.rigth;
-      } else if(node.rigth==null) {
-        return node.left
-      }else{
-        let minNode=this._minNode(node.rigth);
-        node.data=minNode.data;
-        node.rigth=this._delete(node.rigth,minNode.data)
+      } else if (node.rigth == null) {
+        return node.left;
+      } else {
+        let minNode = this._minNode(node.rigth);
+        node.data = minNode.data;
+        node.rigth = this._delete(node.rigth, minNode.data);
       }
-      return node
+      return node;
     }
   }
-  _minNode(node){
-    while (node.left!==null) {
-      node=node.left
+  _minNode(node) {
+    while (node.left !== null) {
+      node = node.left;
     }
-    return node
+    return node;
   }
 
   //count of nodes
@@ -174,10 +174,10 @@ let bst = new BST();
 bst.insert(50);
 bst.insert(40);
 bst.insert(60);
-bst.insert(70)
-bst.insert(41)
-bst.insert(39)
-bst.insert(59)
+bst.insert(70);
+bst.insert(41);
+bst.insert(39);
+bst.insert(59);
 
 // let se = bst.search(bst.root, 150);
 // console.log("preorder");
@@ -193,5 +193,5 @@ bst.insert(59)
 // console.log(bst.min(bst.root));
 // console.log(bst.max(bst.root));
 console.log(bst);
-bst.delete()
+bst.delete();
 console.log(bst);
